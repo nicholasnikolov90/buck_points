@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import fil_finder as fil
+from fil_finder import FilFinder2D
 import astropy.units as u
 
 # Load the image

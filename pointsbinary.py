@@ -29,8 +29,10 @@ fil.preprocess_image(flatten_percent=85)
 fil.create_mask(border_masking=True, verbose=False,
 use_existing_mask=True)
 fil.medskel(verbose=False)
-fil.analyze_skeletons(branch_thresh=40* u.pix, skel_thresh=10 * u.pix, prune_criteria='length')
+fil.analyze_skeletons(branch_thresh=10* u.pix, skel_thresh=10 * u.pix, prune_criteria='length')
 
+print(f""" The number of branches are: {(int) (fil.branch_properties['number'] - 1 )/2} """)
+print(f"""The length of all branches are: {fil.branch_lengths(u.pix)[0]} """)
 plt.imshow(fil.skeleton, cmap='gray')
 plt.contour(fil.skeleton_longpath, colors='r')
 plt.axis('off')
